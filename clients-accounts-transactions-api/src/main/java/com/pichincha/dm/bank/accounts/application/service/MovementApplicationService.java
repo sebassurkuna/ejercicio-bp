@@ -41,17 +41,6 @@ public class MovementApplicationService implements MovementInputPort {
     private static final String INVALID_DEBIT_VALUE_MESSAGE =
             "Los débitos deben tener valores negativos";
 
-    //    public MovementApplicationService(
-    //            MovementOutputPort movementOutputPort,
-    //            AccountOutputPort accountOutputPort,
-    //            BalanceRecalculationService balanceRecalculationService) {
-    //        this.movementOutputPort = movementOutputPort;
-    //        this.accountOutputPort = accountOutputPort;
-    //        this.balanceRecalculationService = balanceRecalculationService;
-    //        this.validationChain =
-    // MovementValidationChain.createDefaultChain().getValidationChain();
-    //    }
-
     @Override
     public Mono<Movement> createMovement(Movement movement) {
         return accountOutputPort

@@ -14,7 +14,6 @@ repositories {
     mavenCentral()
 }
 
-// OpenAPI Generator Configuration
 openApiGenerate {
     generatorName = "spring"
     inputSpec = "${rootDir}/openapi.yml".toString()
@@ -30,7 +29,6 @@ openApiGenerate {
     ]
 }
 
-// Configure source sets to include generated code
 sourceSets {
     main {
         java {
@@ -41,11 +39,10 @@ sourceSets {
 
 compileJava.dependsOn tasks.openApiGenerate
 
-// Spotless Configuration
 spotless {
     java {
         target 'src/**/*.java'
-        googleJavaFormat('1.17.0').aosp().reflowLongStrings()
+        googleJavaFormat('1.18.1').aosp().reflowLongStrings()
         removeUnusedImports()
         trimTrailingWhitespace()
         endWithNewline()
@@ -91,4 +88,8 @@ dependencies {
     implementation 'org.mapstruct:mapstruct:1.5.5.Final'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
     annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+    
+    // PDF Generation
+    implementation 'com.openhtmltopdf:openhtmltopdf-pdfbox:1.0.10'
+    implementation 'com.openhtmltopdf:openhtmltopdf-slf4j:1.0.10'
 }
