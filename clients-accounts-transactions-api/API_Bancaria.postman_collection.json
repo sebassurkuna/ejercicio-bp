@@ -1,0 +1,739 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-1234-abcdef987654",
+		"name": "API Bancaria - Ejercicio Técnico",
+		"description": "Colección completa de Postman para la API Bancaria - Clientes, Cuentas, Movimientos y Reportes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12345678"
+	},
+	"item": [
+		{
+			"name": "Clients",
+			"item": [
+				{
+					"name": "Listar clientes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes?page=0&size=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Número de página (default: 0)"
+								},
+								{
+									"key": "size",
+									"value": "20",
+									"description": "Tamaño de página (default: 20)"
+								}
+							]
+						},
+						"description": "Obtiene una lista paginada de todos los clientes"
+					}
+				},
+				{
+					"name": "Crear cliente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"persona\": {\n    \"nombre\": \"Marianela\",\n    \"apellido\": \"Montalvo\",\n    \"genero\": \"FEMENINO\",\n    \"fechaNacimiento\": \"1990-03-15\",\n    \"identificacion\": \"1102233344\",\n    \"telefono\": \"098123456\",\n    \"direccion\": \"Av. Amazonas 123\"\n  },\n  \"username\": \"marianela.m\",\n  \"password\": \"Passw0rd!\",\n  \"estado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes"
+							]
+						},
+						"description": "Crea un nuevo cliente con los datos de persona asociados"
+					}
+				},
+				{
+					"name": "Obtener cliente por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes/{{clienteId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"{{clienteId}}"
+							]
+						},
+						"description": "Obtiene los detalles de un cliente específico por su ID"
+					}
+				},
+				{
+					"name": "Actualizar cliente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"persona\": {\n    \"nombre\": \"Marianela\",\n    \"apellido\": \"Montalvo\",\n    \"direccion\": \"Av. Amazonas 456\"\n  },\n  \"username\": \"marianela.m\",\n  \"estado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes/{{clienteId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"{{clienteId}}"
+							]
+						},
+						"description": "Actualiza los datos de un cliente existente"
+					}
+				},
+				{
+					"name": "Eliminar cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/clientes/{{clienteId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"clientes",
+								"{{clienteId}}"
+							]
+						},
+						"description": "Elimina (marca como inactivo) un cliente específico"
+					}
+				}
+			],
+			"description": "Operaciones CRUD para la gestión de clientes"
+		},
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Listar cuentas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/cuentas?clienteId={{clienteId}}&page=0&size=20",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							],
+							"query": [
+								{
+									"key": "clienteId",
+									"value": "{{clienteId}}",
+									"description": "Filtrar por cliente (opcional)"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Número de página (default: 0)"
+								},
+								{
+									"key": "size",
+									"value": "20",
+									"description": "Tamaño de página (default: 20)"
+								}
+							]
+						},
+						"description": "Obtiene una lista paginada de cuentas, opcionalmente filtradas por cliente"
+					}
+				},
+				{
+					"name": "Crear cuenta",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"clienteId\": \"{{clienteId}}\",\n  \"tipo\": \"CORRIENTE\",\n  \"saldoInicial\": 1000.00,\n  \"estado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/cuentas",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"cuentas"
+							]
+						},
+						"description": "Crea una nueva cuenta bancaria para un cliente"
+					}
+				},
+				{
+					"name": "Obtener cuenta por número",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/cuentas/{{numeroCuenta}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"{{numeroCuenta}}"
+							]
+						},
+						"description": "Obtiene los detalles de una cuenta específica por su número"
+					}
+				},
+				{
+					"name": "Actualizar cuenta",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"tipo\": \"CORRIENTE\",\n  \"estado\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/cuentas/{{numeroCuenta}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"{{numeroCuenta}}"
+							]
+						},
+						"description": "Actualiza los datos de una cuenta existente"
+					}
+				},
+				{
+					"name": "Eliminar cuenta",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/cuentas/{{numeroCuenta}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"cuentas",
+								"{{numeroCuenta}}"
+							]
+						},
+						"description": "Elimina (marca como inactiva) una cuenta específica"
+					}
+				}
+			],
+			"description": "Operaciones CRUD para la gestión de cuentas bancarias"
+		},
+		{
+			"name": "Movements",
+			"item": [
+				{
+					"name": "Listar movimientos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/movimientos?clienteId={{clienteId}}&numeroCuenta={{numeroCuenta}}&fechaDesde=2025-02-01&fechaHasta=2025-02-28&page=0&size=50",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							],
+							"query": [
+								{
+									"key": "clienteId",
+									"value": "{{clienteId}}",
+									"description": "Filtrar por cliente (opcional)"
+								},
+								{
+									"key": "numeroCuenta",
+									"value": "{{numeroCuenta}}",
+									"description": "Filtrar por número de cuenta (opcional)"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2025-02-01",
+									"description": "Fecha desde (formato: YYYY-MM-DD)"
+								},
+								{
+									"key": "fechaHasta",
+									"value": "2025-02-28",
+									"description": "Fecha hasta (formato: YYYY-MM-DD)"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Número de página (default: 0)"
+								},
+								{
+									"key": "size",
+									"value": "50",
+									"description": "Tamaño de página (default: 50)"
+								}
+							]
+						},
+						"description": "Obtiene una lista paginada de movimientos con filtros opcionales"
+					}
+				},
+				{
+					"name": "Crear movimiento",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cuentaId\": \"{{cuentaId}}\",\n  \"tipo\": \"DEBITO\",\n  \"valor\": 575.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/movimientos",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"movimientos"
+							]
+						},
+						"description": "Crea un nuevo movimiento (débito o crédito) y actualiza el saldo de la cuenta"
+					}
+				},
+				{
+					"name": "Obtener movimiento por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/movimientos/{{movimientoId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"movimientos",
+								"{{movimientoId}}"
+							]
+						},
+						"description": "Obtiene los detalles de un movimiento específico por su ID"
+					}
+				},
+				{
+					"name": "Actualizar movimiento",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"valor\": 600.00\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/movimientos/{{movimientoId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"movimientos",
+								"{{movimientoId}}"
+							]
+						},
+						"description": "Actualiza un movimiento existente (si aplica según la lógica de negocio)"
+					}
+				},
+				{
+					"name": "Eliminar movimiento",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/movimientos/{{movimientoId}}",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"movimientos",
+								"{{movimientoId}}"
+							]
+						},
+						"description": "Elimina (marca como inactivo) un movimiento específico"
+					}
+				}
+			],
+			"description": "Operaciones CRUD para la gestión de movimientos y transacciones"
+		},
+		{
+			"name": "Reports",
+			"item": [
+				{
+					"name": "Generar reporte JSON",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/reportes?clienteId={{clienteId}}&fechaDesde=2025-02-01&fechaHasta=2025-02-28&formato=json",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "clienteId",
+									"value": "{{clienteId}}",
+									"description": "ID del cliente (requerido)"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2025-02-01",
+									"description": "Fecha desde (requerido, formato: YYYY-MM-DD)"
+								},
+								{
+									"key": "fechaHasta",
+									"value": "2025-02-28",
+									"description": "Fecha hasta (requerido, formato: YYYY-MM-DD)"
+								},
+								{
+									"key": "formato",
+									"value": "json",
+									"description": "Formato del reporte (json|pdf|pdfBase64)"
+								}
+							]
+						},
+						"description": "Genera un estado de cuenta en formato JSON para un cliente en un rango de fechas"
+					}
+				},
+				{
+					"name": "Generar reporte PDF",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/pdf",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/reportes?clienteId={{clienteId}}&fechaDesde=2025-02-01&fechaHasta=2025-02-28&formato=pdf",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "clienteId",
+									"value": "{{clienteId}}",
+									"description": "ID del cliente (requerido)"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2025-02-01",
+									"description": "Fecha desde (requerido, formato: YYYY-MM-DD)"
+								},
+								{
+									"key": "fechaHasta",
+									"value": "2025-02-28",
+									"description": "Fecha hasta (requerido, formato: YYYY-MM-DD)"
+								},
+								{
+									"key": "formato",
+									"value": "pdf",
+									"description": "Formato del reporte (json|pdf|pdfBase64)"
+								}
+							]
+						},
+						"description": "Genera un estado de cuenta en formato PDF binario para un cliente en un rango de fechas"
+					}
+				},
+				{
+					"name": "Generar reporte PDF Base64",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/reportes?clienteId={{clienteId}}&fechaDesde=2025-02-01&fechaHasta=2025-02-28&formato=pdfBase64",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"reportes"
+							],
+							"query": [
+								{
+									"key": "clienteId",
+									"value": "{{clienteId}}",
+									"description": "ID del cliente (requerido)"
+								},
+								{
+									"key": "fechaDesde",
+									"value": "2025-02-01",
+									"description": "Fecha desde (requerido, formato: YYYY-MM-DD)"
+								},
+								{
+									"key": "fechaHasta",
+									"value": "2025-02-28",
+									"description": "Fecha hasta (requerido, formato: YYYY-MM-DD)"
+								},
+								{
+									"key": "formato",
+									"value": "pdfBase64",
+									"description": "Formato del reporte (json|pdf|pdfBase64)"
+								}
+							]
+						},
+						"description": "Genera un estado de cuenta con PDF codificado en base64 incluido en la respuesta JSON"
+					}
+				}
+			],
+			"description": "Operaciones para la generación de reportes y estados de cuenta"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string",
+			"description": "URL base de la API"
+		},
+		{
+			"key": "clienteId",
+			"value": "2d1f3b9a-e4aa-4fa8-9f9c-abcdef012345",
+			"type": "string",
+			"description": "ID de ejemplo para operaciones con cliente específico"
+		},
+		{
+			"key": "numeroCuenta",
+			"value": "478758",
+			"type": "string",
+			"description": "Número de cuenta de ejemplo"
+		},
+		{
+			"key": "cuentaId",
+			"value": "a1b2c3d4-e5f6-7890-1234-abcdef987654",
+			"type": "string",
+			"description": "ID de cuenta de ejemplo"
+		},
+		{
+			"key": "movimientoId",
+			"value": "f1234567-89ab-4cde-0123-abcdefabcdef",
+			"type": "string",
+			"description": "ID de movimiento de ejemplo"
+		}
+	]
+}

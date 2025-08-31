@@ -1,0 +1,57 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: bank_postgres_db
+    environment:
+      POSTGRES_DB: bank_db
+      POSTGRES_USER: bank_user
+      POSTGRES_PASSWORD: bank_password
+      POSTGRES_INITDB_ARGS: "--auth-host=trust --auth-local=trust"
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/BaseDatos.sql:/docker-entrypoint-initdb.d/01-init.sql
+    networks:
+      - bank_network
+    restart: unless-stopped
+
+  bank-app:
+    build: .
+    container_name: bank_accounts_app
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_R2DBC_URL=r2dbc:postgresql://postgres:5432/bank_db
+      - SPRING_R2DBC_USERNAME=bank_user
+      - SPRING_R2DBC_PASSWORD=bank_password
+      - SPRING_LIQUIBASE_ENABLED=false
+      - SPRING_R2DBC_POOL_ENABLED=true
+      - SPRING_R2DBC_POOL_INITIAL_SIZE=5
+      - SPRING_R2DBC_POOL_MAX_SIZE=20
+    networks:
+      - bank_network
+    depends_on:
+      postgres:
+        condition: service_started
+    restart: unless-stopped
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: bank_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@bank.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8080:80"
+    networks:
+      - bank_network
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
+
+networks:
+  bank_network:
+    driver: bridge

@@ -1,0 +1,94 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.0'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'org.openapi.generator' version '7.0.1'
+    id 'com.diffplug.spotless' version '6.23.3'
+}
+
+group = 'com.pichincha.dm.bank'
+version = '1.0.0'
+java.sourceCompatibility = JavaVersion.VERSION_17
+
+repositories {
+    mavenCentral()
+}
+
+// OpenAPI Generator Configuration
+openApiGenerate {
+    generatorName = "spring"
+    inputSpec = "${rootDir}/openapi.yml".toString()
+    outputDir = "${buildDir}/generated".toString()
+    apiPackage = "com.pichincha.dm.bank.accounts.infrastructure.adapter.rest.api"
+    modelPackage = "com.pichincha.dm.bank.accounts.infrastructure.adapter.rest.dto"
+    configOptions = [
+        interfaceOnly: "true",
+        useTags: "true",
+        reactive: "true",
+        useSpringBoot3: "true",
+        serializationLibrary: "jackson"
+    ]
+}
+
+// Configure source sets to include generated code
+sourceSets {
+    main {
+        java {
+            srcDirs += "${buildDir}/generated/src/main/java"
+        }
+    }
+}
+
+compileJava.dependsOn tasks.openApiGenerate
+
+// Spotless Configuration
+spotless {
+    java {
+        target 'src/**/*.java'
+        googleJavaFormat('1.17.0').aosp().reflowLongStrings()
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        endWithNewline()
+        formatAnnotations()
+        
+    
+        targetExclude 'build/generated/**'
+    }
+}
+
+compileJava.dependsOn spotlessApply
+
+dependencies {
+    // Spring Boot Starters
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    
+    // R2DBC PostgreSQL
+    implementation 'org.postgresql:r2dbc-postgresql'
+    implementation 'io.r2dbc:r2dbc-pool'
+    runtimeOnly 'org.postgresql:postgresql'
+    
+    // OpenAPI and Swagger
+    implementation 'org.springdoc:springdoc-openapi-starter-webflux-ui:2.2.0'
+    implementation 'io.swagger.core.v3:swagger-annotations:2.2.15'
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
+    
+    // Jackson
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    
+    // Validation
+    implementation 'jakarta.validation:jakarta.validation-api'
+    implementation 'org.hibernate.validator:hibernate-validator'
+    
+    // Lombok
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    
+    // MapStruct
+    implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
+    annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
+}
