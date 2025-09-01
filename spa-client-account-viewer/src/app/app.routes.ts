@@ -12,7 +12,7 @@ export const routes: Routes = [
     { path: 'create', component: ClientFormComponent },
     { path: 'edit/:id', component: ClientFormComponent }
   ]},
-  { path: 'accounts', component: AccountsComponent },
-  { path: 'movements', component: MovementsComponent },
+  { path: 'accounts/:id', component: AccountsComponent },
+  { path: 'movements/:client/:account', component: MovementsComponent },
   { path: 'reports', component: ReportsComponent }
 ];

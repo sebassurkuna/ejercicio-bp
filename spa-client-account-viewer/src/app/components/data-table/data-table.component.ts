@@ -15,6 +15,7 @@ export class DataTableComponent {
   @Input() data: any[] = [];
   @Input() editFn: ((id: string) => void) | undefined;
   @Input() deleteFn: ((id: string) => void) | undefined;
+  @Input() customActions: Array<{ label: string; fn: (row: any) => void }> = [];
 
   pageSize: number = 20;
   page: number = 1;

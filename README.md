@@ -70,7 +70,6 @@ Consulta el README en: [`spa-client-account-viewer/README.md`](./spa-client-acco
 
 ### 🛡️ **Validaciones y Seguridad**
 - Validación de saldos antes de operaciones de débito
-- Control de estados de cuentas (activa/inactiva)
 - Validaciones de integridad de datos
 - Manejo robusto de errores y excepciones
 

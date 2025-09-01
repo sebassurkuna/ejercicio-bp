@@ -18,15 +18,18 @@
 					}
 					<td class="data-table__td data-table__td--actions" style="position:relative;">
 						<button class="data-table__actions-btn" (click)="toggleMenu(i)">⋮</button>
-						<div 
-							class="data-table__actions-menu" 
-							*ngIf="openMenuIndex === i"
-							(mouseleave)="closeMenu()"
-							style="position:absolute; right:0; z-index:10; background:#fff; border:1px solid #eee; border-radius:4px; box-shadow:0 2px 8px rgba(0,0,0,0.08); min-width:120px;"
-						>
-							<button class="data-table__actions-item" (click)="onEdit(row.id)">Editar</button>
-							<button class="data-table__actions-item" (click)="onDelete(row.id)">Eliminar</button>
-						</div>
+									<div 
+										class="data-table__actions-menu" 
+										*ngIf="openMenuIndex === i"
+										(mouseleave)="closeMenu()"
+										style="position:absolute; right:0; z-index:10; background:#fff; border:1px solid #eee; border-radius:4px; box-shadow:0 2px 8px rgba(0,0,0,0.08); min-width:120px;"
+									>
+										@for(action of customActions; track $index){
+											<button class="data-table__actions-item" (click)="action.fn(row)">{{ action.label }}</button>
+										}
+										<button class="data-table__actions-item" (click)="onEdit(row.id)">Editar</button>
+										<button class="data-table__actions-item" (click)="onDelete(row.id)">Eliminar</button>
+									</div>
 					</td>
 				</tr>
 			}
