@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.service.ClientTransactionServiceTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:36" hostname="SEBASTIAN-SANTA" time="0.114">
-  <properties/>
-  <testcase name="givenValidClientIdWhenDeleteClientThenReturnMonoVoid()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.service.ClientTransactionServiceTest" time="0.075"/>
-  <testcase name="givenValidClientWhenSaveClientThenReturnSavedClientMono()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.service.ClientTransactionServiceTest" time="0.02"/>
-  <testcase name="givenValidClientWhenUpdateClientThenReturnUpdatedClientMono()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.service.ClientTransactionServiceTest" time="0.017"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
