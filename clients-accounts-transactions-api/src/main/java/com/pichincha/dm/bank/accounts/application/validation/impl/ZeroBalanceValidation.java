@@ -1,10 +1,10 @@
-package com.pichincha.dm.bank.accounts.domain.validation.impl;
+package com.pichincha.dm.bank.accounts.application.validation.impl;
 
+import com.pichincha.dm.bank.accounts.application.validation.AbstractMovementValidation;
 import com.pichincha.dm.bank.accounts.domain.Account;
 import com.pichincha.dm.bank.accounts.domain.Movement;
 import com.pichincha.dm.bank.accounts.domain.enums.MovementType;
 import com.pichincha.dm.bank.accounts.domain.exception.TransactionNotAllowedException;
-import com.pichincha.dm.bank.accounts.domain.validation.AbstractMovementValidation;
 import java.math.BigDecimal;
 
 public class ZeroBalanceValidation extends AbstractMovementValidation {

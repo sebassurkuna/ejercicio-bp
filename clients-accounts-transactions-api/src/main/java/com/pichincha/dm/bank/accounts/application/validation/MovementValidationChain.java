@@ -1,7 +1,7 @@
-package com.pichincha.dm.bank.accounts.domain.validation;
+package com.pichincha.dm.bank.accounts.application.validation;
 
-import com.pichincha.dm.bank.accounts.domain.validation.impl.InsufficientBalanceValidation;
-import com.pichincha.dm.bank.accounts.domain.validation.impl.ZeroBalanceValidation;
+import com.pichincha.dm.bank.accounts.application.validation.impl.InsufficientBalanceValidation;
+import com.pichincha.dm.bank.accounts.application.validation.impl.ZeroBalanceValidation;
 
 public class MovementValidationChain {
 

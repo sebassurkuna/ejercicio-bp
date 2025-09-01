@@ -1,4 +1,4 @@
-package com.pichincha.dm.bank.accounts.domain.validation;
+package com.pichincha.dm.bank.accounts.application.validation;
 
 import com.pichincha.dm.bank.accounts.domain.Account;
 import com.pichincha.dm.bank.accounts.domain.Movement;

@@ -1,4 +1,4 @@
-package com.pichincha.dm.bank.accounts.domain.service;
+package com.pichincha.dm.bank.accounts.application.strategy;
 
 import com.pichincha.dm.bank.accounts.domain.Report;
 import java.util.List;
