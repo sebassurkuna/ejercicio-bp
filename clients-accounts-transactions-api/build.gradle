@@ -4,6 +4,7 @@ plugins {
     id 'io.spring.dependency-management' version '1.1.4'
     id 'org.openapi.generator' version '7.0.1'
     id 'com.diffplug.spotless' version '6.23.3'
+    id 'info.solidsoft.pitest' version '1.15.0'
 }
 
 group = 'com.pichincha.dm.bank'
@@ -55,6 +56,32 @@ spotless {
 
 compileJava.dependsOn spotlessApply
 
+// PITest configuration for mutation testing
+pitest {
+    targetClasses = ['com.pichincha.dm.bank.*']
+    excludedClasses = [
+        'com.pichincha.dm.bank.accounts.infrastructure.adapter.rest.api.*',
+        'com.pichincha.dm.bank.accounts.infrastructure.adapter.rest.dto.*',
+        'com.pichincha.dm.bank.accounts.domain.*',
+        '**/mapper/*',
+        '**/*Mapper*',
+        '*Configuration*',
+        '*Application*'
+    ]
+    threads = 4
+    outputFormats = ['XML', 'HTML']
+    timestampedReports = false
+    detectInlinedCode = true
+    exportLineCoverage = true
+    jvmArgs = ['-Xmx1024m']
+    testPlugin = 'junit5'
+    pitestVersion = '1.15.8'
+    junit5PluginVersion = '1.2.1'
+}
+
+// Make PITest run as part of the build process
+build.dependsOn 'pitest'
+
 dependencies {
     // Spring Boot Starters
     implementation 'org.springframework.boot:spring-boot-starter-webflux'
@@ -100,6 +127,9 @@ dependencies {
     testImplementation 'org.mockito:mockito-core'
     testImplementation 'org.mockito:mockito-junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // PITest JUnit 5 plugin
+    pitest 'org.pitest:pitest-junit5-plugin:1.2.1'
 }
 
 test {

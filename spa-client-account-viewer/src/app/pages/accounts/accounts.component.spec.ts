@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AccountsComponent } from './accounts.component';
+import { provideHttpClient } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('AccountsComponent', () => {
   let component: AccountsComponent;
@@ -8,7 +11,16 @@ describe('AccountsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AccountsComponent]
+      imports: [AccountsComponent],
+      providers: [
+        provideHttpClient(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: of({ get: (key: string) => null })
+          }
+        }
+      ]
     })
     .compileComponents();
 

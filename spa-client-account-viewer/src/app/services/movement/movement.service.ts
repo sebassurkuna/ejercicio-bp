@@ -2,7 +2,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.local';
 import { Movement } from '../../interfaces/movement.interface';
-import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

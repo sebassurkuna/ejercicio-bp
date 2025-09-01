@@ -20,4 +20,14 @@ describe('PageHeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit the input value when changeSearchTerm is called', () => {
+    const testValue = 'busqueda';
+    const event = { target: { value: testValue } } as unknown as Event;
+    jest.spyOn(component.search, 'emit');
+
+    component.changeSearchTerm(event);
+
+    expect(component.search.emit).toHaveBeenCalledWith(testValue);
+  });
 });
