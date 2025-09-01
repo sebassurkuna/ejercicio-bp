@@ -1,9 +1,8 @@
-package com.pichincha.dm.bank.accounts.infrastructure.adapter.report.strategy;
+package com.pichincha.dm.bank.accounts.application.strategy;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.pichincha.dm.bank.accounts.application.strategy.ReportGeneratorStrategy;
 import com.pichincha.dm.bank.accounts.domain.Report;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;

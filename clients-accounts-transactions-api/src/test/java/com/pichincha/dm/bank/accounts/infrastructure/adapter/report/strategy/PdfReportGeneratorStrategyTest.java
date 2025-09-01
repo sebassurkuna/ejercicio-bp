@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import com.pichincha.dm.bank.accounts.application.port.output.ReportOutputPort;
+import com.pichincha.dm.bank.accounts.application.strategy.PdfReportGeneratorStrategy;
 import com.pichincha.dm.bank.accounts.domain.Report;
 import java.math.BigDecimal;
 import java.time.LocalDate;

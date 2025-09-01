@@ -1,7 +1,6 @@
-package com.pichincha.dm.bank.accounts.infrastructure.adapter.report.strategy;
+package com.pichincha.dm.bank.accounts.application.strategy;
 
 import com.pichincha.dm.bank.accounts.application.port.output.ReportOutputPort;
-import com.pichincha.dm.bank.accounts.application.strategy.ReportGeneratorStrategy;
 import com.pichincha.dm.bank.accounts.domain.Report;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
