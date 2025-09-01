@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.application.validation.AbstractMovementValidationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:32" hostname="SEBASTIAN-SANTA" time="0.073">
+  <properties/>
+  <testcase name="givenNextValidationWhenSetNextThenChainIsEstablished()" classname="com.pichincha.dm.bank.accounts.application.validation.AbstractMovementValidationTest" time="0.058"/>
+  <testcase name="givenValidAccountAndMovementWhenValidateThenDoValidateIsCalled()" classname="com.pichincha.dm.bank.accounts.application.validation.AbstractMovementValidationTest" time="0.007"/>
+  <testcase name="givenValidAccountAndMovementWithNextValidationWhenValidateThenBothValidationsAreCalled()" classname="com.pichincha.dm.bank.accounts.application.validation.AbstractMovementValidationTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

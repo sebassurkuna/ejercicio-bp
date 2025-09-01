@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.PdfGeneratorAdapterTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:32" hostname="SEBASTIAN-SANTA" time="2.513">
+  <properties/>
+  <testcase name="givenValidReportWhenGeneratePdfFromReportThenReturnBase64String()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.PdfGeneratorAdapterTest" time="2.501"/>
+  <testcase name="givenReportPdfFactoryThrowsExceptionWhenGeneratePdfFromReportThenReturnError()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.PdfGeneratorAdapterTest" time="0.01"/>
+  <system-out><![CDATA[21:16:32.871 [Test worker] INFO com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.PdfGeneratorAdapter -- Generating Complete Account Statement - HTML content length: 43 characters
+Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
+21:16:35.276 [Test worker] INFO com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.PdfGeneratorAdapter -- Generated Complete Account Statement PDF size: 1053 bytes
+]]></system-out>
+  <system-err><![CDATA[com.openhtmltopdf.load INFO:: SAX XMLReader in use (parser): com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser
+com.openhtmltopdf.load INFO:: SAX XMLReader in use (parser): com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser
+com.openhtmltopdf.load INFO:: Loaded document in ~33ms
+com.openhtmltopdf.load INFO:: TIME: parse stylesheets 240ms
+com.openhtmltopdf.match INFO:: media = print
+com.openhtmltopdf.match INFO:: Matcher created with 160 selectors
+com.openhtmltopdf.general INFO:: Using fast-mode renderer. Prepare to fly.
+]]></system-err>
+</testsuite>

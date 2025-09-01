@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.application.command.DeleteMovementCommandTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:27" hostname="SEBASTIAN-SANTA" time="3.297">
+  <properties/>
+  <testcase name="shouldReturnSameInstanceWhenWithMovementToDeleteCalled()" classname="com.pichincha.dm.bank.accounts.application.command.DeleteMovementCommandTest" time="2.683"/>
+  <testcase name="givenValidMovementAndAccountWhenExecuteThenDeleteMovementSuccessfully()" classname="com.pichincha.dm.bank.accounts.application.command.DeleteMovementCommandTest" time="0.603"/>
+  <testcase name="shouldReturnSameInstanceWhenWithAccountCalled()" classname="com.pichincha.dm.bank.accounts.application.command.DeleteMovementCommandTest" time="0.007"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\sebas\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.10\90ed94ac044ea8953b224304c762316e91fd6b31\byte-buddy-agent-1.14.10.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

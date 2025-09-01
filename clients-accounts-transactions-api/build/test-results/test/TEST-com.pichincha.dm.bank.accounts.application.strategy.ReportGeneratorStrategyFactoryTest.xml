@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.application.strategy.ReportGeneratorStrategyFactoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:32" hostname="SEBASTIAN-SANTA" time="0.092">
+  <properties/>
+  <testcase name="givenUnsupportedFormatWhenGenerateReportThenThrowException()" classname="com.pichincha.dm.bank.accounts.application.strategy.ReportGeneratorStrategyFactoryTest" time="0.06"/>
+  <testcase name="givenDuplicateFormatStrategiesWhenGenerateReportThenUseFirst()" classname="com.pichincha.dm.bank.accounts.application.strategy.ReportGeneratorStrategyFactoryTest" time="0.014"/>
+  <testcase name="givenValidJsonFormatWhenGenerateReportThenReturnJsonReport()" classname="com.pichincha.dm.bank.accounts.application.strategy.ReportGeneratorStrategyFactoryTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

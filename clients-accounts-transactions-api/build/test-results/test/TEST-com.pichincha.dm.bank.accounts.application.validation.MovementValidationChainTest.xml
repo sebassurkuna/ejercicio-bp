@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.application.validation.MovementValidationChainTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:32" hostname="SEBASTIAN-SANTA" time="0.026">
+  <properties/>
+  <testcase name="givenDefaultChainWhenCreateDefaultChainThenReturnChainWithCorrectValidations()" classname="com.pichincha.dm.bank.accounts.application.validation.MovementValidationChainTest" time="0.004"/>
+  <testcase name="givenSingleValidationWhenBuildChainThenReturnChainWithSingleValidation()" classname="com.pichincha.dm.bank.accounts.application.validation.MovementValidationChainTest" time="0.006"/>
+  <testcase name="givenMultipleValidationsWhenBuildChainThenReturnChainWithCorrectOrder()" classname="com.pichincha.dm.bank.accounts.application.validation.MovementValidationChainTest" time="0.007"/>
+  <testcase name="givenBuilderWhenBuilderThenReturnNewBuilderInstance()" classname="com.pichincha.dm.bank.accounts.application.validation.MovementValidationChainTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

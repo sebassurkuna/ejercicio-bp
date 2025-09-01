@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.application.validation.impl.ZeroBalanceValidationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:32" hostname="SEBASTIAN-SANTA" time="0.01">
+  <properties/>
+  <testcase name="givenInvalidDebitMovementWhenValidateThenThrowException()" classname="com.pichincha.dm.bank.accounts.application.validation.impl.ZeroBalanceValidationTest" time="0.005"/>
+  <testcase name="givenValidDebitMovementWhenValidateThenValidationPasses()" classname="com.pichincha.dm.bank.accounts.application.validation.impl.ZeroBalanceValidationTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

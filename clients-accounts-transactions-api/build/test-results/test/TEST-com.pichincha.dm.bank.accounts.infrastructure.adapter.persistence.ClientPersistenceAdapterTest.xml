@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.ClientPersistenceAdapterTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:35" hostname="SEBASTIAN-SANTA" time="0.366">
+  <properties/>
+  <testcase name="givenValidIdWhenExistsByIdThenReturnTrueMono()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.ClientPersistenceAdapterTest" time="0.294"/>
+  <testcase name="givenValidIdWhenDeleteByIdThenReturnMonoVoid()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.ClientPersistenceAdapterTest" time="0.008"/>
+  <testcase name="givenValidClientWhenSaveThenReturnSavedClientMono()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.ClientPersistenceAdapterTest" time="0.01"/>
+  <testcase name="givenValidClientWhenUpdateThenReturnUpdatedClientMono()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.ClientPersistenceAdapterTest" time="0.013"/>
+  <testcase name="givenExistingClientsWhenFindAllThenReturnClientsFlux()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.ClientPersistenceAdapterTest" time="0.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

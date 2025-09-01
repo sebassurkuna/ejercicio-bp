@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.entity.ClientEntityTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:36" hostname="SEBASTIAN-SANTA" time="0.012">
+  <properties/>
+  <testcase name="givenClientEntityWhenSetIdThenIdIsUpdated()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.entity.ClientEntityTest" time="0.003"/>
+  <testcase name="givenAllArgsConstructorWhenCreateClientEntityThenAllFieldsAreSet()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.persistence.entity.ClientEntityTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

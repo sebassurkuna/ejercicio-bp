@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.ReportPdfFactoryTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2025-09-01T02:16:35" hostname="SEBASTIAN-SANTA" time="0.141">
+  <properties/>
+  <testcase name="givenReportWithEmptyAccountsWhenCreateAccountSummaryPdfThenReturnSummaryWithEmptyMessage()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.ReportPdfFactoryTest" time="0.095"/>
+  <testcase name="givenReportWithAccountsWithoutMovementsWhenCreateAccountStatementPdfThenReturnHtmlWithNoMovementsMessage()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.ReportPdfFactoryTest" time="0.007"/>
+  <testcase name="givenValidReportWhenCreateAccountSummaryPdfThenReturnSummaryHtml()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.ReportPdfFactoryTest" time="0.006"/>
+  <testcase name="givenValidReportWhenCreateAccountStatementPdfThenReturnCompleteHtml()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.ReportPdfFactoryTest" time="0.013"/>
+  <testcase name="givenReportWithEmptyAccountsWhenCreateAccountStatementPdfThenReturnHtmlWithEmptyMessage()" classname="com.pichincha.dm.bank.accounts.infrastructure.adapter.pdf.ReportPdfFactoryTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
