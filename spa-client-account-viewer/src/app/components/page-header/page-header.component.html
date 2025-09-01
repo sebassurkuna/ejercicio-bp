@@ -1,0 +1,7 @@
+<div class="page-header">
+  <div class="page-header__title">{{ title }}</div>
+  <div class="page-header__actions">
+    <input class="page-header__search" type="text" placeholder="Buscar" (input)="changeSearchTerm($event)">
+    <button class="page-header__create" (click)="create.emit()">Nuevo</button>
+  </div>
+</div>

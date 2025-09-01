@@ -1,0 +1,30 @@
+<div class="sidebar">
+  <ul class="sidebar__list">
+    @for (item of sidebarItems; let isFirst = $first; track $index) {
+      <li>
+        <a
+          class="sidebar__nav-item"
+          [routerLink]="item.url"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: isFirst }"
+        >
+          <span class="material-symbols-outlined sidebar__nav-item-icon"> {{ item.icon }} </span>
+          <span class="sidebar__nav-item-text">
+            <div
+              category="text"
+              align="inherit"
+              variant="prelo"
+              size="14px"
+              lineHeight="20px"
+            >
+              {{ item.title }}<br />
+            </div>
+          </span>
+        </a>
+      </li>
+    }
+  </ul>
+  <div class="sidebar__toggle-icon">
+    <span class="material-symbols-outlined" (click)="toggle()"> keyboard_arrow_right </span>
+  </div>
+</div>

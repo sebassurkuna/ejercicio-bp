@@ -1,0 +1,27 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: row;
+}
+
+.content {
+  flex: 1 0 auto;
+  max-width: calc(100% - 244px);
+
+  &--without-sidebar {
+    max-width: 100%;
+  }
+
+  &--with-header {
+    margin-top: 64px;
+  }
+}
+
+.unexpanded ~ .content {
+  max-width: calc(100% - 64px);
+}
+
+.content-wrapper {
+  min-height: 100vh;
+  padding: 0px 24px;
+}

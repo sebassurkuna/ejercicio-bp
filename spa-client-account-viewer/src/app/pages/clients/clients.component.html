@@ -1,0 +1,11 @@
+<app-page-header 
+  title="Clientes" 
+  (search)="searchContentByUsername($event)" 
+  (create)="navigateToCreate()"
+></app-page-header>
+<app-data-table 
+  [data]="clients" 
+  [columns]="columns" 
+  [editFn]="navigateToEdit.bind(this)"
+  [deleteFn]="deleteClient.bind(this)"
+></app-data-table>

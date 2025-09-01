@@ -1,0 +1,58 @@
+
+<h2 class="client-form__title">{{ title }}</h2>
+<form class="client-form" [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+	<div formGroupName="persona">
+		<div class="client-form__row">
+			<div class="client-form__field">
+				<label class="client-form__label">Nombre</label>
+				<input class="client-form__input" type="text" formControlName="nombre" required />
+			</div>
+			<div class="client-form__field">
+				<label class="client-form__label">Apellido</label>
+				<input class="client-form__input" type="text" formControlName="apellido" required />
+			</div>
+		</div>
+		<div class="client-form__row">
+			<div class="client-form__field">
+				<label class="client-form__label">Género</label>
+				<select class="client-form__input" formControlName="genero" required>
+					<option value="" disabled>Selecciona</option>
+					<option *ngFor="let g of generos" [value]="g.value">{{ g.label }}</option>
+				</select>
+			</div>
+			<div class="client-form__field">
+				<label class="client-form__label">Fecha de nacimiento</label>
+				<input class="client-form__input" type="date" formControlName="fechaNacimiento" required />
+			</div>
+		</div>
+		<div class="client-form__row">
+			<div class="client-form__field">
+				<label class="client-form__label">Identificación</label>
+				<input class="client-form__input" type="text" formControlName="identificacion" required />
+			</div>
+			<div class="client-form__field">
+				<label class="client-form__label">Teléfono</label>
+				<input class="client-form__input" type="text" formControlName="telefono" required />
+			</div>
+		</div>
+		<div class="client-form__row">
+			<div class="client-form__field client-form__field--wide">
+				<label class="client-form__label">Dirección</label>
+				<input class="client-form__input" type="text" formControlName="direccion" required />
+			</div>
+		</div>
+	</div>
+	<div class="client-form__row">
+		<div class="client-form__field">
+			<label class="client-form__label">Username</label>
+			<input class="client-form__input" type="text" formControlName="username" required />
+		</div>
+		<div class="client-form__field">
+			<label class="client-form__label">Password</label>
+			<input class="client-form__input" type="password" formControlName="password" required />
+		</div>
+	</div>
+	<div class="client-form__actions">
+		<button class="client-form__btn" type="submit">Guardar</button>
+	</div>
+</form>

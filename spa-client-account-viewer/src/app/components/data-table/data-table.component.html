@@ -1,0 +1,48 @@
+<div class="data-table">
+	<table class="data-table__table">
+		<thead>
+			<tr>
+				@for(col of columns; track $index){
+					<th class="data-table__th">{{ col.label }}</th>
+				}
+				<th class="data-table__th">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			@for(row of paginatedData; let i = $index; track $index){
+				<tr>
+					@for(col of columns; track $index){
+						<td class="data-table__td">
+							<span>{{ getNestedValue(row, col.key) }}</span>
+						</td>
+					}
+					<td class="data-table__td data-table__td--actions" style="position:relative;">
+						<button class="data-table__actions-btn" (click)="toggleMenu(i)">⋮</button>
+						<div 
+							class="data-table__actions-menu" 
+							*ngIf="openMenuIndex === i"
+							(mouseleave)="closeMenu()"
+							style="position:absolute; right:0; z-index:10; background:#fff; border:1px solid #eee; border-radius:4px; box-shadow:0 2px 8px rgba(0,0,0,0.08); min-width:120px;"
+						>
+							<button class="data-table__actions-item" (click)="onEdit(row.id)">Editar</button>
+							<button class="data-table__actions-item" (click)="onDelete(row.id)">Eliminar</button>
+						</div>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+
+	<div class="data-table__pagination">
+		<label class="data-table__pagination-label">
+			Mostrar
+			<select class="data-table__pagination-select" [(ngModel)]="pageSize" (ngModelChange)="goToPage(1)">
+				<option *ngFor="let size of [20,40,60,80,100]" [value]="size">{{ size }}</option>
+			</select>
+			por página
+		</label>
+		<button class="data-table__pagination-btn" [disabled]="page === 1" (click)="goToPage(page - 1)">&lt;</button>
+		<span class="data-table__pagination-info">Página {{ page }} de {{ totalPages }}</span>
+		<button class="data-table__pagination-btn" [disabled]="page === totalPages" (click)="goToPage(page + 1)">&gt;</button>
+	</div>
+</div>
